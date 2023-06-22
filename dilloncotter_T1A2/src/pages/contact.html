@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact - Dillon's Portfolio</title>
+  <link rel="stylesheet" href="../styles/style.css">
+  <link rel="shortcut icon" href="../assets/fav-icon.png" type="image/x-icon">
+
+</head>
+<body>
+  <!-- header section -->
+<header class="header">
+  <div class="container">
+    <a href="../index.html"><img src="../assets/fav-icon.png" alt="A Logo of the letter D being lifted from the ground"></a><!--Resuse favicon as logo-->
+  </div>
+</header>
+  
+  <!-- Navigation section -->
+<nav class="nav-bar">
+  <div class="container">
+    <ul class="nav-options">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li>
+        <a href="blog.html">Blogs</a> <!--Adds a sublist under the Blogs as a dropdown -->
+        <ul class="blog-dropdown">
+          <li><a href="blog.html#blog1">Blog 1</a></li>
+          <li><a href="blog.html#blog2">Blog 2</a></li>
+          <li><a href="blog.html#blog3">Blog 3</a></li>
+          <li><a href="blog.html#blog4">Blog 4</a></li>
+          <li><a href="blog.html#blog5">Blog 5</a></li>
+        </ul>
+      </li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+  <!-- Main Section -->
+<main>
+  <section class="jumbotron">
+    <h1>How to contact</h1>
+    <h4>Either use this handy form, or use any of the other details provided!</h4>
+    <div class="container">
+      <!--Input form to contact-->
+      <div class="form-part">
+        <form name="contact-form" method="POST" data-netlify="true"> <!--coding found on Netlify on how to make a useable form with submission-->
+          <label for="cont-name">Full Name:</label>
+          <input type="text" id="cont-name" name="full-name" placeholder="Your Name">
+          <label for="cont-email">Enter Email:</label>
+          <input type="email" id="cont-email" name="email" placeholder="your@email.com">
+          <label for="cont-message">Your message:</label>
+          <textarea id="cont-message" name="message" placeholder="Write your message here:"></textarea>
+          <input type="submit" Value="Submit">
+        </form>
+      </div>
+      <!--Other contact details-->
+      <div class="other-contact">
+        <!-- Map image input -->
+        <img src="../assets/map.png" alt="A map of the Geelong, Victoria area" srcset="">
+        <div class="cont">
+          <h4>Location:</h4>
+          <p>123 Fake Street,</p>
+          <p>Geelong, Victoria,</p>
+          <p>Australia.</p>
+        </div>
+        <div class="cont">
+          <h4>Phone:</h4>
+          <p>+61412 345 678</p>
+        </div>
+        <div class="cont">
+          <h4>Email:</h4>
+          <p>14582@coderacademy.edu.au</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- Footer section -->
+<footer class="footer">
+  <div class="container">
+    <ul class="left-footer">
+      <li>
+        <a href="https://github.com/dilbot-cot">
+          <img src="../assets/github.svg" alt="GitHub">
+        </a>
+      </li>
+      <li>
+        <a href="https://www.linkedin.com/in/dillon-cotter-a94516194/">
+          <img src="../assets/linkedin.svg" alt="LinkedIn">
+        </a>
+      </li>
+    </ul>
+    <div class="contact-foot">
+      <a href="mailto:14582@coderacademy.edu.au">Contact Me! 
+        <img src="../assets/send.png" alt="A Mail Icon" srcset="">
+      </a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

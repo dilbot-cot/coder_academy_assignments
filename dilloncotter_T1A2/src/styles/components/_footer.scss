@@ -1,0 +1,64 @@
+.footer {
+    background-color: $primary-lightest;
+    max-width: 100vw;
+    width: 100vw;
+    height: 96px;
+    border-top: 4px solid $primary-darkest;
+
+    .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 100%;
+    }
+    .left-footer {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        width: 50%;
+        li {
+            list-style: none;
+        }
+    }
+
+    .contact-foot { 
+        //need the footer split 50/50 half with git & LinkedIn half with a contact me mailto
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        padding-left: 10px;
+        height: 50%;
+       margin-right: 2.5rem;
+        background-color: $primary-darkest;
+        border-radius: 8px;
+
+
+        a {
+            display: flex;
+            align-items: center;
+            color: $off-white;
+            text-decoration: none;
+            font-weight: 700;
+        }
+        img {
+            margin-right: 1rem;
+            margin-left: .5rem;
+        }
+    }
+}
+
+@media screen and (max-width: 767px) {
+    //when the footer is below tablet size (EG for mobile) it removes the contact me mailto and instead spreads the git and linkedin links evenly 
+    .footer {
+        .contact-foot {
+            display: none;
+        }
+        .container {
+        justify-content: space-evenly;
+        }
+        .left-footer{
+            flex: 2;
+        }
+    }
+    
+}

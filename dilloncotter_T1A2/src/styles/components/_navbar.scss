@@ -1,0 +1,61 @@
+.nav-bar {
+    background-color: $primary-lightest;
+    display: flex;
+    justify-content: space-around;
+    overflow: hidden;
+    width: 100vw;
+
+    .nav-options {
+        display: flex;
+        justify-content: space-around;
+        list-style: none;
+        border-bottom: 4px solid $primary-darkest;
+        font-weight: 700;
+    }
+    
+    li {
+        text-align: center;
+        margin: .25rem 0;
+    }
+    a {
+        text-decoration: none;
+        display: block;
+        padding: 10px;
+        color: $off-white;
+    }
+    // Turns off Dropdown by default (mobile first design) but adds the display elements for later
+    .blog-dropdown {
+        display: none;
+        position: absolute;
+        list-style: none;
+        padding: 0 10px;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    //turns on the dropdown menu when screen size is above 800px
+    .nav-bar .nav-options {
+        li:hover,
+        li:active {
+            .blog-dropdown {
+                display: block;
+                background-color: $primary-darkest;
+                li {
+                    border-bottom: 1px dotted $off-white;
+                    margin: 0
+                }
+                li:last-child {
+                    border-bottom:none;
+                }
+            }
+        }
+    }
+}
+@media screen and (min-width: 1024px) {
+    .nav-bar .nav-options {
+        justify-content: flex-end;
+        a{
+            padding-right: 2rem;
+        }
+    }
+}

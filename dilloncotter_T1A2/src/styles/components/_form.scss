@@ -1,0 +1,112 @@
+.form-header {
+    padding-top: 1rem;
+    h2 {
+        padding-bottom: 1rem;
+    }
+    h4 {
+        padding-bottom: 1.5rem;
+    }
+}
+input[type=text] , input[type=email], select, textarea {
+    width: 100%;
+    padding: .75rem;
+    border: 1px solid $primary-darkest;
+    border-radius: 15px;
+    margin-bottom: 1rem;
+}
+
+textarea { 
+    //sets a standard height for the message input
+    height: 150px;
+}
+
+input[type=submit] {
+    background-color: $primary-darkest;
+    color: $off-white;
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    border: none;
+    cursor: pointer;
+    border-radius: 15px;
+    margin-bottom: 2rem;
+
+    &:hover,
+    &:active {
+        background-color: $highlight;
+    }
+}
+
+.other-contact {
+    color: $primary-darkest;
+    img {
+        margin-bottom: 1rem;
+    }
+    h4{
+        padding-bottom: .25rem;
+        padding-top: 1rem;
+    }
+}
+@media screen and (min-width: 768px){
+    //when displayed for tablet and above, places the contact field and map to the left and right.
+    .jumbotron {
+        .container{
+            .form-part{
+                padding-top: 2rem;
+                width:95vw;
+            }
+            .other-contact{
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
+                padding-top: 2rem;
+                //found that I needed more space for the map and other contact sections than the form.
+                width: 80vw; 
+
+                .cont {
+                    border: 1px solid $primary-darkest;
+                    border-radius: 15px;
+                    padding: 0 .5rem 1rem .5rem;
+                    text-align: center;
+                    margin: auto;
+                }
+                img {
+                    width: 80vw;
+                }
+            }
+        }
+    }
+}
+@media screen and (min-width: 1024px){
+    .jumbotron {
+        .container{
+            .form-part{
+                width:30vw;
+                border: 1px solid $primary-darkest;
+                border-radius: 15px;
+                padding: 1rem;
+                padding-top: 2rem;
+                margin-top: 2rem;
+            }
+            .other-contact{
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-evenly;
+                padding-top: 2rem;
+                width: 55vw;
+                .cont {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                    border: 1px solid $primary-darkest;
+                    border-radius: 15px;
+                    padding: 0 .5rem 1rem .5rem;
+                    height: 114px;
+                }
+                img {
+                    width: 55vw;
+                }
+            }
+        }
+    }
+}

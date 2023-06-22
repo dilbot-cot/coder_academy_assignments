@@ -1,0 +1,78 @@
+//sets image width for the logo
+.header img {
+    width: 64px;
+}
+
+//sets image width for the GitHub and LinkedIn icons
+.footer img {
+    width: 48px;
+    }
+
+//image of an arrow "send" in the contact button in all footers
+.contact-foot img {
+    width: 30px;
+    filter: brightness(100%) invert(100%) //Researched how I could make an image white as the black default did not work with the background colour.
+}
+//sets the image for the map in contact us page
+.other-contact img {
+    width: 80vw;
+    border: 1px solid $primary-darkest;
+    border-radius: 15px;
+    box-shadow: 0px 0px 20px $primary-darkest;
+}
+
+//sets each blog card image, also sets a separate opaque image transition for 2s on hover
+//site used to change transparency onlinepngtools.com
+.blog-card1 {
+    background-image: url("../assets/puppy.jpg"); 
+    transition: background-image 2s;
+    &:hover,
+    &:active {
+        background-image: url("../assets/puppy2.png"); 
+    }
+}
+.blog-card2 {
+    background-image: url("../assets/cabin.jpg"); 
+    transition: background-image 2s;
+    &:hover,
+    &:active {
+        background-image: url("../assets/cabin2.png"); 
+    }
+}
+.blog-card3 {
+    background-image: url("../assets/camera.jpg"); 
+    transition: background-image 2s;
+    &:hover,
+    &:active {
+        background-image: url("../assets/camera2.png"); 
+    }
+}
+.blog-card4 {
+    background-image: url("../assets/bread.jpg"); 
+    transition: background-image 2s;
+    &:hover,
+    &:active {
+        background-image: url("../assets/bread2.png"); 
+    }
+}
+.blog-card5 {
+    background-image: url("../assets/computer.jpg"); 
+    transition: background-image 2s;
+    &:hover,
+    &:active {
+        background-image: url("../assets/computer2.png"); 
+    }
+}
+.blog-text img {
+    width: 80vw;
+    padding: 24px 0;
+}
+.resume img {
+    width: 24px;
+    margin: auto;
+}
+
+.personal img {
+    width: 80vw;
+    border-radius: 15px;
+}

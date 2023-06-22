@@ -1,0 +1,24 @@
+@keyframes zoom { // Adds a zoom effect - used on the Logo one page load (once only)
+    0% {
+        width: 0px;
+        height: 0px;
+    }
+}
+
+@keyframes spin { // Adds a spin effect - used on the Welcome header
+    0% {
+        transform: rotate(0deg)
+    }
+    100% {
+        transform: rotate(360deg)
+    }
+}
+
+@keyframes fade { //Adds a fade effect to make an item almost transparent
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: .25;
+    }
+}

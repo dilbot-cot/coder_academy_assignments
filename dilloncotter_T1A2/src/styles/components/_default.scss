@@ -1,0 +1,23 @@
+* {
+    //defaults page settings
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
+    box-sizing: border-box;
+}
+html, body {
+    height: 100%;
+}
+.container{
+    //sets the container vw to 100 so content appears edge to edge
+    width: 100vw;
+    margin: 0 auto;
+}
+
+@media screen and (min-width: 1024px) {
+    //hides all horizontal overflow, found an issue where horizontal scoll bar appears in full screen.
+    //this was later patched with styling of the Contact Me button, but the code is still helpful.
+    body {
+        overflow-x: hidden;
+    }
+}

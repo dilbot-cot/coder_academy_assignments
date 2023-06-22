@@ -1,0 +1,91 @@
+.blog-header {
+    h2 {
+        padding-top: 1.5rem;
+        padding-bottom: .5rem;
+        color: $primary-darkest;
+    }
+}
+
+.blog-cards {
+    display: flex;
+    flex-wrap: column;
+    justify-content: space-between;
+    padding-bottom: 1.5rem;
+    ul {
+        list-style: none;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
+.blog-card { 
+    //adds images as the cards then on hover or active hides the image
+    height: 35vw;
+    width: 35vw; 
+    background-size: cover;
+    //This centers the transparent hyperlinks
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+    a{
+        text-decoration: none;
+        color: $primary-darkest;
+        //sets text to be 'invisible' initially
+        opacity: 0;
+        transition: opacity 2s;
+    }
+    &:hover,
+    &:active {
+        a{ 
+            //as the link is hovered, makes the hyperlink text appear solid.
+            opacity: 1; 
+        }
+    }   
+}
+.blog-text {
+    display: flex;
+    flex-direction: column;
+
+    h2 {
+        padding-bottom: .5rem;
+        color: $primary-darkest;
+        padding-top: .5rem;
+        border-top: 1px dashed $primary-darkest;
+
+    }
+    h4 {
+        color: $highlight;
+        border-bottom: 1px solid $primary-lightest;
+        border-top: 1px solid $primary-lightest;
+        padding: .25rem;
+    }
+    p {
+        color: $primary-dark;
+        padding: .5rem 0 1.5rem 0;
+    }
+}
+#blog1 {
+    h2{
+        border-top: none;
+    }
+}
+@media screen and (min-width: 1024px){
+    .jumbotron {
+        .container{
+            .blog-card{
+                //when in desktop view, the cards alter width so they appear in a single row rather than flex, but not altering height.
+                width: 19vw; 
+                //centers the images as background
+                background-position: center 
+            }
+        }
+
+            .blog-text {
+                img {
+                    //sets the maximum image width to be 512px as keeping it with a vw made the images appear really large on bigger viewing sizes.
+                    max-width: 512px; 
+                }
+            }
+        }
+    }

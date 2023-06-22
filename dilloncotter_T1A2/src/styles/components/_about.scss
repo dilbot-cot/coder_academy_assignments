@@ -1,0 +1,105 @@
+.work {
+    h4{
+        color: $primary-darkest;
+    }
+    p {
+        color: $primary-darkest;
+    }
+    ul {
+        list-style: none;
+    }
+    .work-dot {
+        border: 1px solid $primary-darkest;
+        border-radius: 15px;
+        padding: .25rem 1rem;
+        margin: .5rem 0;
+        background-color: $highlight;
+        //researched how I could make a 3D effect with clean lines found on w3school.com (Box Shadow - Multiple Shadows)
+        box-shadow:
+            0 0 0 1px $primary-darkest,
+            0 1px 2px $primary-darkest,
+            0 2px 4px $primary-darkest,
+            0 4px 8px $primary-darkest;
+        p{ 
+            color: $off-white;
+        }
+    }
+    .work-blurb {
+        text-align: center;
+        li{
+            list-style-type: none;
+            border-bottom: .5px dotted $highlight;
+            padding: .25rem 0;
+            &:first-child { //allows a dotted line to appear at the start of the list//
+                border-top: .5px dotted $highlight;
+                margin-top: .5rem;
+            }
+            &:last-child {
+                margin-bottom: .5rem; //adds margin at the end of the list for spacing
+            }
+        }
+        h4 {
+            margin-top: 1rem;
+        }
+        .resume {
+            //adds some styling specific for the pdf download section.
+            border: 1px solid $highlight;
+            padding: .5rem;
+            border-radius: 15px;
+            display: flex;
+            margin: .5rem 0;
+            align-items: center;
+            P{
+                color: $highlight;
+                flex: 2;
+            }
+            a{
+                flex:.5;
+            }
+        }
+    }
+}
+.personal {
+    ul {
+        list-style: none;
+        
+        li{
+            &:last-child {
+                margin-bottom: .5rem;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 1024px){
+    .jumbotron {
+        .container{
+            .work {
+                //when in desktop view alters  so that the content is split on left and right of screen, rather than ontop.
+                display: flex;
+                flex-direction: column;
+                flex: 1.5;
+                width: 45vw;
+                padding: 0 1rem 0 1rem;
+                .work-dot {
+                    display: flex;
+                    flex-direction: column;
+                }
+            }
+            .personal {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                flex: 1.5;
+                width: 45vw;
+                padding: 0 1rem 0 1rem;
+                //adds a page split to clearly demark each section Personal/Work
+                border-right: 1px solid $primary-darkest; 
+                img {
+                    width: 35vw;
+                    margin: 1rem 0;
+                }
+            }
+        }
+    }
+}
