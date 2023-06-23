@@ -1,6 +1,7 @@
 # This README contains information for the coder-academy Term 1 Assessment 3 - Terminal Application.
 
-- [GitHub repo](https://github.com/dilbot-cot/coder-academy-T1A2)
+- [GitHub repo](https://github.com/dilbot-cot/coder_academy_assignments/tree/main/dilloncotter_T1A3)
+
 ### Features
 
 ### Implementation plan
