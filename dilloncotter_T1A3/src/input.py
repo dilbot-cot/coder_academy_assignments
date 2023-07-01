@@ -44,3 +44,17 @@ class UserInput:
                     print("Inavlid range. Both terms must be positive and term end must be larger or equal to term start")
             except ValueError:
                 print("Invalid input. Please enter a number.") #handles error where a non numerical value is input
+
+    # funtion to get the interest rate range
+    def get_interest_rate_range(self):
+        while True:
+            try:
+                #ask for  the interest rate range
+                rate_start = float(input("Enter the start of the interest rate you would like to test: "))
+                rate_end = float(input("Enter the end of the interest rate you would like to test: "))
+                if rate_start > 0 and rate_end > 0 and rate_end >= rate_start:
+                    return rate_start, rate_end
+                else:
+                    print("Inavlid range. Both terms must be positive and end rate must be larger or equal to start rate")
+            except ValueError:
+                print("Invalid input. Please enter a number.") #handles error where a non numerical value is input
