@@ -1,2 +1,3 @@
 *.zip
-./dilloncotter_T1A3/src/__pycache__
+dilloncotter_T1A3/src/.pytest_cache
+dilloncotter_T1A3/src/__pycache__
