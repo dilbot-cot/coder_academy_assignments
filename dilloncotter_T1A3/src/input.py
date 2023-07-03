@@ -4,17 +4,22 @@ class UserInput:
     def clear_terminal(self):
         os.system('cls' if os.name == 'nt' else 'clear')
 
+    def get_input(self, prompt):
+        while True:
+            user_input = input(prompt)
+            if user_input.lower() == 'exit':
+                if self.confirm_exit("Are you sure you wish to exit?"):
+                    print("Program stopped at user request.")
+                    exit()
+                else:
+                    continue
+            return user_input
+
     def get_loan_amount(self):
         self.clear_terminal()
         while True:
             try:
-                loan_amount = input("Please enter the loan amount (or type 'exit' to stop the program): $")
-                if loan_amount.lower() == 'exit':
-                    if self.confirm_exit("Are you sure you wish to escape?"):
-                        print("Program stopped at user request.")
-                        exit()
-                    else:
-                        continue
+                loan_amount = self.get_input("Please enter the loan amount (or type 'exit' to stop the program): $")
                 loan_amount = float(loan_amount)
                 if loan_amount > 0:
                     return loan_amount
@@ -32,13 +37,7 @@ class UserInput:
             print("[3] - Monthly repayments")
             print("Type 'exit' to quit")
             try:
-                frequency = input("Enter repayment frequency (1, 2, or 3): ")
-                if frequency.lower() == 'exit':
-                    if self.confirm_exit("Are you sure you wish to escape?"):
-                        print("Program stopped at user request.")
-                        exit()
-                    else:
-                        continue
+                frequency = self.get_input("Enter repayment frequency (1, 2, or 3): ")
                 frequency = int(frequency)
                 if frequency == 1:
                     return "weekly"
@@ -56,20 +55,8 @@ class UserInput:
         while True:
             try:
                 print("Input the loan term range you are testing, type 'exit' to quit")
-                term_start = input("Enter the start of the loan term you would like to test (in years): ")
-                if term_start.lower() == 'exit':
-                    if self.confirm_exit("Are you sure you wish to escape?"):
-                        print("Program stopped at user request.")
-                        exit()
-                    else:
-                        continue
-                term_end = input("Enter the end of the loan term you would like to test (in years): ")
-                if term_end.lower() == 'exit':
-                    if self.confirm_exit("Are you sure you wish to escape?"):
-                        print("Program stopped at user request.")
-                        exit()
-                    else:
-                        continue
+                term_start = self.get_input("Enter the start of the loan term you would like to test (in years): ")
+                term_end = self.get_input("Enter the end of the loan term you would like to test (in years): ")
                 term_start = int(term_start)
                 term_end = int(term_end)
                 if term_start > 0 and term_end > 0 and term_end >= term_start:
@@ -84,20 +71,8 @@ class UserInput:
         while True:
             try:
                 print("Input the interest rate range you are testing, type 'exit' to quit")
-                rate_start = input("Enter the start of the interest rate you would like to test: ")
-                if rate_start.lower() == 'exit':
-                    if self.confirm_exit("Are you sure you wish to escape?"):
-                        print("Program stopped at user request.")
-                        exit()
-                    else:
-                        continue
-                rate_end = input("Enter the end of the interest rate you would like to test: ")
-                if rate_end.lower() == 'exit':
-                    if self.confirm_exit("Are you sure you wish to escape?"):
-                        print("Program stopped at user request.")
-                        exit()
-                    else:
-                        continue
+                rate_start = self.get_input("Enter the start of the interest rate you would like to test: ")
+                rate_end = self.get_input("Enter the end of the interest rate you would like to test: ")
                 rate_start = float(rate_start)
                 rate_end = float(rate_end)
                 if rate_start > 0 and rate_end > 0 and rate_end >= rate_start:
@@ -109,7 +84,7 @@ class UserInput:
 
     def confirm_exit(self, prompt):
         while True:
-            confirmation = input(prompt + " (y/n): ")
+            confirmation = self.get_input(prompt + " (y/n): ")
             if confirmation.lower() == "y":
                 return True
             elif confirmation.lower() == "n":
