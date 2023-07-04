@@ -1,9 +1,29 @@
 import os
 
 class UserInput:
+    # Function to clear terminal
     def clear_terminal(self):
         os.system('cls' if os.name == 'nt' else 'clear')
+        
+    # Function to confirm loan details with the user
+    def confirm_inputs(self, loan_amount, frequency, term_start, term_end, rate_start, rate_end):
+        self.clear_terminal()
+        print("Please confirm the following details:")
+        print(f"Loan Amount: ${format(loan_amount, ',.2f')}")
+        print(f"Repayment frequency: {frequency.capitalize()}")
+        print(f"Loan term range: {term_start} years to {term_end} years")
+        print(f"Interest rate range: {format(rate_start, '.2f')}% to {format(rate_end, '.2f')}%")
+        while True:
+            # Get confirmation from the user
+            confirmation = self.get_input("Is this information correct (y/n): ")
+            if confirmation.lower() == "y":
+                return True
+            elif confirmation.lower() == "n":
+                return False
+            else:
+                print("Invalid input. Please enter only y or n.")
 
+    # Function to get any user input with the option to exit program
     def get_input(self, prompt):
         while True:
             user_input = input(prompt)
@@ -15,6 +35,7 @@ class UserInput:
                     continue
             return user_input
 
+    #Function to get the loan amount from the user
     def get_loan_amount(self):
         self.clear_terminal()
         while True:
@@ -28,6 +49,7 @@ class UserInput:
             except ValueError:
                 print("Invalid input. Please enter a number.")
 
+    # Function to get the repayment frequency from the user
     def get_repayment_frequency(self):
         self.clear_terminal()
         while True:
@@ -50,6 +72,7 @@ class UserInput:
             except ValueError:
                 print("Invalid input. Please enter a number.")
 
+    #Function to get the loan term range from user
     def get_term_range(self):
         self.clear_terminal()
         while True:
@@ -66,6 +89,7 @@ class UserInput:
             except ValueError:
                 print("Invalid input. Please enter a number.")
 
+    # Function to get the interest rate range from the user
     def get_interest_rate_range(self):
         self.clear_terminal()
         while True:
@@ -82,6 +106,7 @@ class UserInput:
             except ValueError:
                 print("Invalid input. Please enter a number.")
 
+    # Function to confirm user's request to exit the program
     def confirm_exit(self, prompt):
         while True:
             confirmation = self.get_input(prompt + " (y/n): ")
