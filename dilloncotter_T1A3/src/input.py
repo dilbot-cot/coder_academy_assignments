@@ -116,3 +116,15 @@ class UserInput:
                 return False
             else:
                 print("Invalid input. Please enter 'y' or 'n'.")
+
+    #Function to validate the loan amount
+    #This is used for testing
+    def validate_loan_amount(self, loan_amount):
+        try:
+            loan_amount = float(loan_amount)
+            if loan_amount > 0:
+                return True, loan_amount
+            else:
+                return False, None
+        except ValueError:
+            return False, None
