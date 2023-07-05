@@ -7,6 +7,15 @@
 ### Implementation plan
 
 ### How to install
+Method 1: Run using executable file
+- Download the main.exe file located in the 'dist' folder of this repository.  
+This is a standalone program that will run on your system.  
+
+Method 2: Run in terminal/command line.  
+- Download the dilloncotter_T1A3 folder from the repository
+- In terminal/cmd navigate to this directory
+- Run the command 'chmod +x run_app.sh' to allow this script to be executed
+- Run the command './run_app.sh' to run the program
 
 ### Tech stack
 - Terminal
