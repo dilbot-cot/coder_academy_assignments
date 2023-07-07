@@ -1,6 +1,8 @@
 from input import UserInput
-from calculations import Loan
-import csv
+from calculations import RepaymentCalculator
+from validation import Validation
+from loan_details import LoanDetails
+from data_writer import DataWriter
 
 def main():
     #Use the UserInput class to handle all user inputs.
@@ -26,30 +28,22 @@ def main():
         "fortnightly": 26,
         "monthly": 12
     }
-    # Opent the CSV file in write mode
-    with open('loan_data.csv', 'w', newline='') as file:
-        writer = csv.writer(file)
 
-        #Write the headers
-        writer.writerow(["For a loan of :", f"${loan_amount}"])
-        writer.writerow(["Loan Term", "Interest Rate", "Repayments", "Frequency"])
+    data = [
+        ["For a loan of :" , f"${loan_amount}"],
+        ["Loan term", "Interest Rate", "Repayments", "Frequency"]
+    ]
+    
+    for term in range(term_start, term_end + 1):
+        for rate in range(int(rate_start * 100), int(rate_end * 100) + 1, 25):
+            loan_details = LoanDetails(loan_amount, frequencies[frequency], term, rate / 100)
+            repayment_calculator = RepaymentCalculator(loan_details)
+            repayments = repayment_calculator.calculate_loan_repayments()
+            row = [f"{term}y", f"{format(rate / 100, '.2f')}%", f"${format(repayments, ',.2f')}", frequency.capitalize()]
+            data.append(row)
+            print(f"For a loan term of {term} years and an interest rate of {format(rate / 100, '.2f')}%, your repayments would be ${format(repayments, ',.2f')} {frequency}.")
 
-        # Iterate over the term and interest rate ranges
-        for term in range(term_start, term_end + 1):
-            for rate in range(int(rate_start * 100), int(rate_end * 100) + 1, 25):
-                # Initialise the loan with amount and repayment frequency
-                loan_calculator = Loan(loan_amount, frequencies[frequency])
-                #Set the term and interest rate for the loan
-                loan_calculator.loan_term = term
-                loan_calculator.interest_rate = rate / 100
-                #Calculate the repayment amount
-                repayments = loan_calculator.calculate_loan_repayments()
-
-                # Write the data to the CSV file
-                writer.writerow([f"{term}y", f"{format(rate / 100, '.2f')}%", f"${format(repayments, ',.2f')}", frequency.capitalize()])
-
-                # Print the repayment details
-                print(f"For a loan term of {term} years and an interest rate of {format(rate / 100, '.2f')}%, your repayments would be ${format(repayments, ',.2f')} {frequency}.")
+    DataWriter.write_csv('loan_data.csv', data)
 
 # Call the main function
 if __name__ == "__main__":
