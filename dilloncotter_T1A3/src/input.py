@@ -116,4 +116,3 @@ class UserInput:
                 return False
             else:
                 print("Invalid input. Please enter 'y' or 'n'.")
-
