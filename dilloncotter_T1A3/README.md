@@ -1,6 +1,7 @@
 # This README contains information for the coder-academy Term 1 Assessment 3 - Terminal Application.
 
 - [GitHub](https://github.com/dilbot-cot/coder_academy_assignments/tree/main/dilloncotter_T1A3)
+- [Style Guide](https://pep8.org/) - (PEP 8)
 
 ## Features
 
@@ -54,7 +55,13 @@ choco install python
 5. In terminal/cmd navigate to this directory
 6. Run the command ```chmod +x run_app.sh``` to allow this script to be executed
 7. Run the command ```./run_app.sh``` to run the program
+* Note: altering permissions and the command ```./run_app.sh``` will not work directly in the Windows cmd prompt or PowerShell. Windows users will need a a unix based environment to succesfully run the shell script.
 
+### Optional macOS users:
+1. Download the [main](dist/) file.  
+
+This is a standalone executable file to run the code (built with pyinstaller)  
+This is stable on macOS 13.4.1, however will not run on Windows and is untested on earlier macOS versions.
 ## Tech stack
 - Terminal
 - Git

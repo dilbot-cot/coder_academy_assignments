@@ -24,6 +24,8 @@ def main():
         if user_input.confirm_inputs(loan_amount, frequency, term_start, term_end, rate_start, rate_end):
             break
 
+    user_input.clear_terminal()
+    
     # Map the frequencies to the number of repayments per year
     frequencies = {
         "weekly": 52,
