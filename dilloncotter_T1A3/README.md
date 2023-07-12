@@ -1,6 +1,8 @@
 # This README contains information for the coder-academy Term 1 Assessment 3 - Terminal Application.
 
 - [GitHub](https://github.com/dilbot-cot/coder_academy_assignments/tree/main/dilloncotter_T1A3)
+- [Video Presentation](https://youtu.be/15IitbskyMM)
+- [Slide Deck](ppt/Presentation.pdf)
 - [Style Guide](https://pep8.org/) - (PEP 8)
 
 ## Features
@@ -58,7 +60,7 @@ choco install python
 * Note: altering permissions and the command ```./run_app.sh``` will not work directly in the Windows cmd prompt or PowerShell. Windows users will need a a unix based environment to succesfully run the shell script.
 
 ### Optional macOS users:
-1. Download the [main](dist/) file.  
+1. Download the [main](dist/) file (found in dist directory) 
 
 This is a standalone executable file to run the code (built with pyinstaller)  
 This is stable on macOS 13.4.1, however will not run on Windows and is untested on earlier macOS versions.
