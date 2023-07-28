@@ -2,6 +2,25 @@
 ## RfQ Response
 
 ### Describe the architecture of a typical Flask application
+A Flask application is built on simplicity and flexibility, allowing it to handle simple and complex tasks.
+
+The core of a Flask application is the Flask class, which forms the basis for creating instances of the web application. These instances are WSGI (Web Server Gateway Interface) applications, providing a common link between web servers and web applications.
+
+Flask applications follow the Model-View-Controller (MVC) design pattern, which separates different concerns:
+
+- Model: Deals with the database and holds data and its behaviours.
+
+- View: This is the user interface where data from the Model is displayed. Flask uses templates to handle this.
+
+- Controller: Responds to user inputs and interacts with the Model. It updates the View when the Model changes. In Flask, this is done using routes and view functions.
+
+Flask uses routing to match client requests with specific view functions. The view functions are then associated with particular URLs.
+
+Request dispatching in Flask is done through Werkzeug, a WSGI utility library. Flask also supports unit testing and allows extensions for various functionalities like form validation and authentication mechanisms.
+
+Flask supports the creation of blueprints, enabling developers to create reusable sections of an application, streamlining the codebase.
+
+Flask doesn't impose a strict project structure, granting developers flexibility. As projects grow, it's common to split them into modules for better organisation.
 
 ### Identify a database management system (DBMS) commonly used in web applications (including Flask) and discuss the pros and cons of this database
 
