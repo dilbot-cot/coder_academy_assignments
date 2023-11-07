@@ -10,16 +10,24 @@
     <h2 id="clockDisplay"></h2>
 
     <script>
+        // this sets a variable linked to the id "clockDisplay"
         let clockDisplayElement = document.getElementById("clockDisplay");
+        
+        // Loads a clock as soon as the page loads
+        clockDisplayElement.innerHTML = new Date(Date.now()).toLocaleTimeString("en-US"); // en-US turns clock to 12hr and LocaleTimeString removes date and other formatting
 
-        clockDisplayElement.innerHTML = new Date(Date.now());
+        
+        // Refreshes the clock every '500ms'
+        setInterval(() =>{
+            clockDisplayElement.innerHTML = new Date(Date.now()).toLocaleTimeString("en-US");
+        }, 500);
 
-        console.log("a");
-        setTimeout(() => {
-            console.log("b");
-        }, 5000);
-        console.log("c");
-    </script>
+        // Old code -> this postphones the loading of the function for 3000ms
+        // setTimeout(() => {
+        //     clockDisplayElement.innerHTML = new Date(Date.now());
+        // }, 3000);
+        
+        </script>
 
 </body>
 </html>
