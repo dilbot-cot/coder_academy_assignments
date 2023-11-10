@@ -1,4 +1,21 @@
-const API_BASE_URL = "https://pokeapi.co/api/v2/pokemon/"
+// Synchronous library for file IO
+const fs = require("node:fs");
+
+// Asynchronous function, making directory can take time
+const {mkdir} = require("node:fs/promises");
+
+// Streaming data, safer than traditional downloading
+// Synchronous
+const {Readable} = require("node:stream");
+
+// Wait for streaming to finish, can take time.
+const {finished} = require("node:stream/promises");
+
+// Node file & directory path helper 
+// ./folder/subfolder/filename.extension
+const path = require("node:path")
+
+const API_BASE_URL = "https://pokeapi.co/api/v2/pokemon/";
 
 function downloadPokemonPicture(targetId = getRandomPokemonId()){
 
