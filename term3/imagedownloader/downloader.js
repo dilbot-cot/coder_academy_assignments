@@ -37,7 +37,7 @@ async function getPokemonPictureUrl(targetId = getRandomPokemonId()){
         throw new Error("API did not return valid JSON");
     });
 
-    return data.sprites.other["official-artowrk"].front_default;
+    return data.sprites.other["official-artwork"].front_default;
 }
 
 // Download the image and save to computer
