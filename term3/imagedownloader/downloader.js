@@ -40,14 +40,45 @@ async function getPokemonPictureUrl(targetId = getRandomPokemonId()){
     return data.sprites.other["official-artowrk"].front_default;
 }
 
-function downloadPokemonPicture(targetId = getRandomPokemonId()){
-    
-}
-
 // Download the image and save to computer
 // Return the image file path
 async function savePokemonPictureToDisk(targetUrl, targetDownloadFilename, targetDownloadDirectory = "./images"){
+    // fetch request to the image URL
+    let imageData = await fetch(targetUrl).catch(error => {
+        throw new Error("Image failed to load");
+    });
+    // Check if target directory exists
+    if (!fs.existsSync(targetDownloadDirectory)) {
+        // make a directory if we need to
+        await mkdir(targetDownloadDirectory);
+    }
 
+    let fullFileDestination = path.join(targetDownloadDirectory, targetDownloadFilename);
+    // Stream image from fetch to target directory
+    let fileDownloadStream = fs.createWriteStream(fullFileDestination);
+
+    // get data as bytes from web request, pipe the bytes to HDD
+    await finished(Readable.fromWeb(imageData.body).pipe(fileDownloadStream)).catch(error => {
+        throw new Error("Failed to save to disk")
+    })
+    
+    // return saved image location
+    return fullFileDestination;
+}
+
+function downloadPokemonPicture(targetId = getRandomPokemonId()){
+    return new Promise(async (resolve, reject) => {
+        try {
+            let newUrl = await getPokemonPictureUrl(targetId);
+      
+            let saveFileLocation = await savePokemonPictureToDisk(newUrl, "ExampleImage.png", "storage");
+            resolve(saveFileLocation);
+        } catch(error) {
+            reject(error);
+        }
+
+
+    })
 }
 
 module.exports = {
