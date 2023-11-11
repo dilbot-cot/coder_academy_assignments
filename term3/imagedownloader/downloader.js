@@ -37,7 +37,11 @@ async function getPokemonPictureUrl(targetId = getRandomPokemonId()){
         throw new Error("API did not return valid JSON");
     });
 
-    return data.sprites.other["official-artwork"].front_default;
+    // return data.sprites.other["official-artwork"].front_default;
+    return {
+        name: data.name,
+        imageUrl: data.sprites.other["official-artwork"].front_default
+    }
 }
 
 // Download the image and save to computer
@@ -69,11 +73,12 @@ async function savePokemonPictureToDisk(targetUrl, targetDownloadFilename, targe
 function downloadPokemonPicture(targetId = getRandomPokemonId()){
     return new Promise(async (resolve, reject) => {
         try {
-            let newUrl = await getPokemonPictureUrl(targetId);
-            let response = await fetch(API_URL_BASE+targetId);
-            let data = await response.json();
+            let newPokemon = await getPokemonPictureUrl(targetId);
 
-            let saveFileLocation = await savePokemonPictureToDisk(newUrl, `${data.name}.png`, "storage");
+            // let response = await fetch(API_URL_BASE+targetId);
+            // let data = await response.json();
+
+            let saveFileLocation = await savePokemonPictureToDisk(newPokemon.imageUrl, `${newPokemon.name}.png`, "storage");
             resolve(saveFileLocation);
         } catch(error) {
             reject(error);
