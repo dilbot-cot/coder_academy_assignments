@@ -70,8 +70,10 @@ function downloadPokemonPicture(targetId = getRandomPokemonId()){
     return new Promise(async (resolve, reject) => {
         try {
             let newUrl = await getPokemonPictureUrl(targetId);
-      
-            let saveFileLocation = await savePokemonPictureToDisk(newUrl, "ExampleImage.png", "storage");
+            let response = await fetch(API_URL_BASE+targetId);
+            let data = await response.json();
+
+            let saveFileLocation = await savePokemonPictureToDisk(newUrl, `${data.name}.png`, "storage");
             resolve(saveFileLocation);
         } catch(error) {
             reject(error);
