@@ -79,7 +79,37 @@ A Project team would need to be made up of Technical skills and Business skills 
 5. User Experience and User Interface Design: Understanding the principles of UX/UI design to create an appealing website.
 
 ### 5. With reference to one of your own projects, discuss what knowledge or skills were required to complete your project, and to overcome challenges
+
+<strong>Flask API project</strong>
+- Backend Development: Knowledge of Python and Flask for building the application logic.
+- Database Management: Understanding relational databases (PostgreSQL) and ORM (SQLAlchemy) for data handling.
+- API design: Skills in creating and managing various endpoints for data retrieval and manipulation.
+- Version control and documentation: Use of Git for version control and clear documentation held in README
+- Security and Authentication: Use of JWT for secure authentication and maintaining user sessions
+- Application configuration: Management of application using configuration files.
+- Dependency Management: Understanding and managing project dependencies listed in requirements.txt
+- Application architecture: Structuring the application into models, controllers and other components.
+
 ### 6. With reference to one of your own projects, evaluate how effective your knowledge and skills were for this project, and suggest changes or improvements for future projects of a similar nature
+
+<stron>Flask API porject</strong>
+
+While I believe I had sufficient skills and theoretical knowledge, certain areas of implementation in a practical sense may have been lacking.  
+- Proper documentation of planning and project management: Planning out the project well ahead of time, and focusing on this upfront taks instead of diving directly into coding would have likely prevented some of the issues that occured in the code and implementation of features.  
+- Sanitise and validate data input: I focused almost entirely on the controllers handling inputs with if statements 
+EG. 
+```
+    # validate password complexity
+    password_pattern = r"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$"
+    if not re.match(password_pattern, password):
+        return jsonify({
+            "error": "Password must be at least 8 characters long and include at least 1 uppercase letter, 1 lowercase letter, 1 number, and 1 special character"
+        }), 400
+```  
+
+As a result of only 'validating' in controllers, I did not input any validation in the Models, which would have made for better code.  
+
+- More valid endpoints: In reviewing my code, there were many areas that were rife to have additional endpoints, to make my code far more useable that were not investigated, including fetching all shows/movies from a genre or director/actor to see all projects without the entire model of these details being shown (EG. Listing a specific genre outputs the names only of TV shows, and does not include start/end dates or id, and does not include any movies in the genre also (possible endpoint /genres/<id>/tvshows))
 
 ### 7. Explain control flow, using an example from the JavaScript programming language  
 
@@ -226,11 +256,161 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures
 
 ### 10. Explain how arrays can be manipulated in JavaScript, using examples from the JavaScript programming language
 
+Arrays in JavaScript can be manipulated to add and remove elements. It can also sort, slice, and combine.
 
+<strong>Add:</strong>
+```
+let fruits = ["apple", "orange"];
+fruits.push("strawberry"); // Output: ["apple", "orange", "strawberry"]
+fruits.unshift("mango"); // Output: ["mango", "apple", "orange", "strawberry"]
+```
 
+<strong>Remove:</strong>
+```
+// from the above fruits array
+fruits.pop(); // Output: ["mango", "apple", "orange"]
+fruits.shift(); // Output: ["apple", "orange"]
+```
+
+<strong>Sort:</strong>
+```
+let nums = [4, 2, 5, 1, 3];
+numbers.sort((a, b) => a - b);
+// Outputs: [1, 2, 3, 4, 5]
+```
+
+<strong>Slice:</strong>
+```
+let fruits = ["mango", "apple", "orange", "strawberry"];
+let favourites = fruits.slice(1, 3);
+/// Output: ["apple", "orange"]
+```
+<strong>Combine:</strong>
+```
+let moreFruit = ["pear", "kiwi"];
+let combinedFruit = favourites.concat(moreFruit);
+// Output: ["apple", "orange", "pear", "kiwi"]
+```
 
 https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps/Arrays
 
 ### 11. Explain how objects can be manipulated in JavaScript, using examples from the JavaScript programming language
+
+Objects are collections of key: values, you can manipulate these by adding, modifying and deleting these properties.
+
+<strong>Create:</strong>
+```
+let student = {
+    firstName: "Dillon",
+    lastName: "Cotter",
+    age: 35
+}
+```
+
+<strong>Add:</strong>
+```
+student.school = "Coder Academy";
+// Output: {firstName: "Dillon", lastName: "Cotter", age: 35, school: "Coder Academy"}
+```
+
+<strong>Modify:</strong>
+```
+student.age = 32;
+// Output: {firstName: "Dillon", lastName: "Cotter", age: 32, school: "Coder Academy"}
+```
+<strong>Remove:</strong>
+```
+delete student.school;
+// Output: {firstName: "Dillon", lastName: "Cotter", age: 32}
+```
+
+https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Client-side_web_APIs/Manipulating_documents
+
 ### 12. Explain how JSON can be manipulated in JavaScript, using examples from the JavaScript programming language
+
+JSON (JavaScript Object Notation) is a text-based format, easy for humans to understand, and easy for computers to understand. It is commonly used to exchange data between a web server and client, as well as storing and transporting data.  
+Due to JSON and JavaScript objects being very similar, manipulation of data is quite straightforward.  
+It can be manipulated in a few ways:  
+
+<strong>Convert JavaScript Object to JSON:</strong>
+```
+let student = {
+    firstName: "Dillon",
+    lastName: "Cotter",
+    age: 32
+}
+let jsonStudent = JSON.stringify(student);
+// Output: '{"firstName": "Dillon", "lastName": "Cotter", "age": 32}'
+```
+<strong>Convert JSON to JavaScript Object:</strong>
+```
+let jsonStudent = '{"firstName": "Dillon", "lastName": "Cotter", "age": 32}';
+let student = JSON.parse(jsonStudent);
+// Output: {firstName: "Dillon", lastName: "Cotter", age: 32}
+```
+<strong>Manipulate JSON Data:</strong>
+```
+student.school = "Coder Academy";
+student.age = 30;
+delete student.lastName;
+
+let updatedJsonStudent = JSON.stringify(student);
+// Output: '{"firstName": "Dillon", "age": 30, "school": "Coder Academy"}'
+```
+
+https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/JSON
+
 ### 13. For the code snippet provided below, write comments for each line of code to explain its functionality. In your comments you must demonstrates your ability to recognise and identify functions, ranges and classes
+```
+// Defines a class called 'Car' - Classes typically use CamelCase notation
+class Car {
+    // constructor function to initialise a new instance of the class 
+  constructor(brand) {
+    // Assign the 'brand' parameter to the 'carname' propery
+    this.carname = brand;
+  }
+  // Method 'present' to return a string that includes the carname
+  present() {
+    return 'I have a ' + this.carname;
+  }
+}
+
+// Define a class called 'Model' that extends the 'Car' class
+class Model extends Car {
+    // constructor function for 'Model' class
+  constructor(brand, mod) {
+    // Call the constructor of the 'Car' class
+    super(brand);
+    // Assign the 'mod' parameter to the 'model' property
+    this.model = mod;
+  }
+  // Method 'show' to display the information about the car and its model
+  show() {
+    return this.present() + ', it was made in ' + this.model;
+  }
+}
+
+// Create an array of car makes
+let makes = ["Ford", "Holden", "Toyota"]
+// Generate an array of years starting from 1980 - 2019
+let models = Array.from(new Array(40), (x,i) => i + 1980)
+
+// Generate a random whole number within a range
+function randomIntFromInterval(min,max) { // min and max included
+    return Math.floor(Math.random()*(max-min+1)+min);
+}
+
+// Iterate over each model year
+for (model of models) {
+    
+    // Randomly select a make from the 'makes' array
+  make = makes[randomIntFromInterval(0,makes.length-1)]
+    // Randomly select a model year from the 'models' array
+  model = models[randomIntFromInterval(0,makes.length-1)]
+
+    // Create a new instance of 'Model' with the randomly chosen make and model
+  mycar = new Model(make, model);
+    // Output the details of the car using the 'show' method
+  console.log(mycar.show())
+}
+```
